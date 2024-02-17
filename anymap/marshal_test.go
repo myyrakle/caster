@@ -4,15 +4,15 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/samber/lo"
+	"github.com/myyrakle/caster/utils"
 )
 
 func TestUnmarshal(t *testing.T) {
 	type shopOverview struct {
-		PriceOfferNotConfirmed int  `json:"priceOfferNotConfirmed" bson:"priceOfferNotConfirmed"` 
-		ItemNotConfirmed       int  `json:"itemNotConfirmed" bson:"itemNotConfirmed"`             
-		ShippingNotProcessed   int  `json:"shippingNotProcessed" bson:"shippingNotProcessed"`     
-		ReturnNotProcessed     *int `json:"returnNotProcessed" bson:"returnNotProcessed"`        
+		PriceOfferNotConfirmed int  `json:"priceOfferNotConfirmed" bson:"priceOfferNotConfirmed"`
+		ItemNotConfirmed       int  `json:"itemNotConfirmed" bson:"itemNotConfirmed"`
+		ShippingNotProcessed   int  `json:"shippingNotProcessed" bson:"shippingNotProcessed"`
+		ReturnNotProcessed     *int `json:"returnNotProcessed" bson:"returnNotProcessed"`
 	}
 
 	type args struct {
@@ -39,7 +39,7 @@ func TestUnmarshal(t *testing.T) {
 				PriceOfferNotConfirmed: 5,
 				ItemNotConfirmed:       10,
 				ShippingNotProcessed:   20,
-				ReturnNotProcessed:     lo.ToPtr(30),
+				ReturnNotProcessed:     utils.ToPointer(30),
 			},
 			mockDestinationVariable: func() any {
 				return shopOverview{}

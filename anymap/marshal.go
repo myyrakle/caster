@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/samber/lo"
+	"github.com/myyrakle/caster/utils"
 )
 
 type AnyMap map[string]any
@@ -107,33 +107,33 @@ func setScalarValue(typeInfo reflect.Type, dest *reflect.Value, value any) {
 	if dest.Kind() == reflect.Ptr {
 		switch typeInfo.Kind() {
 		case reflect.Int:
-			dest.Set(reflect.ValueOf(lo.ToPtr(int(reflect.ValueOf(value).Int()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(int(reflect.ValueOf(value).Int()))))
 		case reflect.Int8:
-			dest.Set(reflect.ValueOf(lo.ToPtr(int8(reflect.ValueOf(value).Int()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(int8(reflect.ValueOf(value).Int()))))
 		case reflect.Int16:
-			dest.Set(reflect.ValueOf(lo.ToPtr(int16(reflect.ValueOf(value).Int()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(int16(reflect.ValueOf(value).Int()))))
 		case reflect.Int32:
-			dest.Set(reflect.ValueOf(lo.ToPtr(int32(reflect.ValueOf(value).Int()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(int32(reflect.ValueOf(value).Int()))))
 		case reflect.Int64:
-			dest.Set(reflect.ValueOf(lo.ToPtr(int64(reflect.ValueOf(value).Int()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(int64(reflect.ValueOf(value).Int()))))
 		case reflect.Uint:
-			dest.Set(reflect.ValueOf(lo.ToPtr(uint(reflect.ValueOf(value).Uint()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(uint(reflect.ValueOf(value).Uint()))))
 		case reflect.Uint8:
-			dest.Set(reflect.ValueOf(lo.ToPtr(uint8(reflect.ValueOf(value).Uint()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(uint8(reflect.ValueOf(value).Uint()))))
 		case reflect.Uint16:
-			dest.Set(reflect.ValueOf(lo.ToPtr(uint16(reflect.ValueOf(value).Uint()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(uint16(reflect.ValueOf(value).Uint()))))
 		case reflect.Uint32:
-			dest.Set(reflect.ValueOf(lo.ToPtr(uint32(reflect.ValueOf(value).Uint()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(uint32(reflect.ValueOf(value).Uint()))))
 		case reflect.Uint64:
-			dest.Set(reflect.ValueOf(lo.ToPtr(uint64(reflect.ValueOf(value).Uint()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(uint64(reflect.ValueOf(value).Uint()))))
 		case reflect.Float32:
-			dest.Set(reflect.ValueOf(lo.ToPtr(float32(reflect.ValueOf(value).Float()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(float32(reflect.ValueOf(value).Float()))))
 		case reflect.Float64:
-			dest.Set(reflect.ValueOf(lo.ToPtr(float64(reflect.ValueOf(value).Float()))))
+			dest.Set(reflect.ValueOf(utils.ToPointer(float64(reflect.ValueOf(value).Float()))))
 		case reflect.String:
-			dest.Set(reflect.ValueOf(lo.ToPtr(reflect.ValueOf(value).String())))
+			dest.Set(reflect.ValueOf(utils.ToPointer(reflect.ValueOf(value).String())))
 		case reflect.Bool:
-			dest.Set(reflect.ValueOf(lo.ToPtr(reflect.ValueOf(value).Bool())))
+			dest.Set(reflect.ValueOf(utils.ToPointer(reflect.ValueOf(value).Bool())))
 		}
 	} else {
 		switch typeInfo.Kind() {
