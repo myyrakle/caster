@@ -7,8 +7,6 @@ import (
 	"github.com/myyrakle/caster/utils"
 )
 
-type AnyMap map[string]any
-
 func isScalarType(k reflect.Kind) bool {
 	switch k {
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64,
@@ -20,7 +18,7 @@ func isScalarType(k reflect.Kind) bool {
 	}
 }
 
-func Unmarshal(source map[string]any, destination any) error {
+func Unmarshal(source AnyMap, destination any) error {
 	typeInfo := reflect.TypeOf(destination)
 
 	// destination이 포인터가 아니면 에러
